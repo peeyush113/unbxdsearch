@@ -7,4 +7,4 @@ you can run the sql using commands below
 $mysql -u root -p --local-infile
 mysql> source database.sql
 
-for slim to work properly you will need to enable rerouting.
+for slim to work properly you will need to enable rewrite.
