@@ -1,0 +1,10 @@
+this is a small search engine for movies provided in the form of csv file. 
+i m using slim framework and php redbean for making mysql queries.
+you can import the csv file data as in mysql by running the sql file.
+in the sql query i m taking the csv file as 'movies.txt' change the file accordingly. 
+you can run the sql using commands below 
+
+$mysql -u root -p --local-infile
+mysql> source database.sql
+
+for slim to work properly you will need to enable rerouting.
