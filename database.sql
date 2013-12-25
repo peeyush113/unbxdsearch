@@ -27,27 +27,3 @@ IGNORE 1 LINES
 	sub_category_type, 
 	price_in_rs, 
 	shipping_duration_in_day) SET group_id = nullif(@group_id, '');
-
-
-
-
-
-SELECT title, MATCH(title) AGAINST('district 9' IN NATURAL LANGUAGE MODE) 
-FROM movies 
-WHERE MATCH(title) AGAINST('district 9' IN NATURAL LANGUAGE MODE);
-
--- SELECT SQL_CALC_FOUND_ROWS, * FROM 
-
-SELECT DISTINCT (group_id), id, title FROM movies WHERE title LIKE "%broken%" AND group_id IS NOT NULL GROUP BY group_id
-
-
-SELECT * FROM ( SELECT DISTINCT (group_id), id, title FROM movies WHERE title LIKE "%broken%" AND group_id IS NOT NULL GROUP BY group_id UNION ALL SELECT DISTINCT (group_id), id, title FROM movies WHERE title LIKE "%broken%" AND group_id IS NULL ) liketbl 
-WHERE NOT EXISTS ( SELECT DISTINCT (group_id), id, title FROM movies WHERE MATCH(title) AGAINST('broken' IN NATURAL LANGUAGE MODE) AND group_id IS NOT NULL GROUP BY group_id UNION ALL SELECT DISTINCT (group_id), id, title FROM movies WHERE MATCH(title) AGAINST('broken' IN NATURAL LANGUAGE MODE) AND group_id IS NULL );
-
-
-
-SELECT DISTINCT (group_id), id, title FROM movies WHERE (MATCH(title) AGAINST('bro' IN NATURAL LANGUAGE MODE) OR title LIKE "%bro%") AND group_id IS NOT NULL GROUP BY group_id UNION ALL SELECT DISTINCT (group_id), id, title FROM movies WHERE (MATCH(title) AGAINST('bro' IN NATURAL LANGUAGE MODE) OR title LIKE "%bro%") AND group_id IS NULL;
-
-
-
-SELECT SQL_CALC_FOUND_ROWS * FROM ( SELECT DISTINCT (group_id), id, title FROM movies WHERE MATCH(title) AGAINST('bro' IN NATURAL LANGUAGE MODE) AND group_id IS NOT NULL GROUP BY group_id UNION ALL SELECT DISTINCT (group_id), id, title FROM movies WHERE MATCH(title) AGAINST('bro' IN NATURAL LANGUAGE MODE) AND group_id IS NULL ) mtchtbl UNION ALL SELECT * FROM ( SELECT DISTINCT (group_id), id, title FROM movies WHERE title LIKE "%bro%" AND group_id IS NOT NULL GROUP BY group_id UNION ALL SELECT DISTINCT (group_id), id, title FROM movies WHERE title LIKE "%bro%" AND group_id IS NULL ) liketbl WHERE FOUND_ROWS() = 0
