@@ -1,10 +1,13 @@
-this is a small search engine for movies provided in the form of csv file. 
-i m using slim framework and php redbean for making mysql queries.
-you can import the csv file data as in mysql by running the sql file.
-in the sql query i m taking the csv file as 'movies.txt' change the file accordingly. 
-you can run the sql using commands below 
+This is a small search engine for movies provided in the form of csv file. 
+
+I am using slim framework and php redbean for making mysql queries.
+You can import the csv file data as in mysql by running the sql file.
+In the sql query i m taking the csv file as 'movies.txt' change it accordingly. 
+You can run the sql using commands below 
 
 $mysql -u root -p --local-infile
 mysql> source database.sql
 
-for slim to work properly you will need to enable rewrite.
+For slim to work properly you will need to enable rewrite.
+I have already added .htaccess file in directory so you will have enable using .htaccess file.
+You might need to change AllowOverride None to AllowOverride FileInfo for your virtual host.
