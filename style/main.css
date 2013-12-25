@@ -1,0 +1,41 @@
+body{
+	padding-top: 40px;
+	padding-bottom: 40px;
+/*	background-color: #eee;*/
+}
+
+.search-box-center{
+	margin-top: 20%;
+}
+
+.search-box-top{
+	margin-top: 1%;
+}
+
+.search-result{
+	margin-top: 1%;
+}
+
+.search-info{
+	margin-top: 1%;
+	text-align: center;
+}
+
+.div-result{
+	margin-top: 1%;
+	min-height: "5px";
+	text-align: center;
+	background-color: #eee;
+	cursor: pointer;
+}
+
+.span-result{
+	padding: 1%;
+
+}
+
+.search-result-info-data{
+	margin-top: 1%;
+	text-align: center;
+	background-color: #eee;
+}
